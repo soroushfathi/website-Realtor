@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if listings %}
+{% for listing in listings %}
+
+<div class="row">
+    <div class="col-md-12">
+      <h3>تماس با مشاور املاک </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div class="team-container team-dark">
+        <div class="team-image">
+          <img src="{{listing.realtor.main_photo}}" alt="the team - mikha realestate theme">
+        </div>
+        <div class="team-description">
+          <h3>{{listing.realtor.name}}</h3>
+          <p><i class="fa fa-phone"></i> Office : 021-234-5678<br>
+          <i class="fa fa-mobile"></i> Mobile : {{listing.realtor.phone}}<br>
+          <i class="fa fa-print"></i> Fax : </p>
+          <p>آدرس مشاور املاک : {{listing.realtor.address}}</p>
+          <div class="team-social">
+            <span><a href="#" title="Twitter" rel="tooltip" data-placement="top"><i class="fa fa-twitter"></i></a></span>
+            <span><a href="#" title="Facebook" rel="tooltip" data-placement="top"><i class="fa fa-facebook"></i></a></span>
+            <span><a href="#" title="Google Plus" rel="tooltip" data-placement="top"><i class="fa fa-google-plus"></i></a></span>
+            <span><a href="#" title="Email" rel="tooltip" data-placement="top"><i class="fa fa-envelope"></i></a></span> 
+            <span><a href="#" title="LinkedIn" rel="tooltip" data-placement="top"><i class="fa fa-linkedin"></i></a></span> 
+          </div>                       
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <form>
+        <div class="form-group">
+          <label for="name">نام</label>
+          <input type="text" class="form-control input-lg" placeholder="نام : ">
+        </div>
+        <div class="form-group">
+          <label for="email">ایمیل</label>
+          <input type="email" class="form-control input-lg" placeholder="ایمیل : ">
+        </div>
+        <div class="form-group">
+          <label for="telp">تلفن.</label>
+          <input type="text" class="form-control input-lg" placeholder="تلفن : ">
+        </div>
+        <div class="form-group">
+          <label for="message">پیام</label>
+          <textarea class="form-control input-lg" rows="7" placeholder="پیام : "></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" name="submit" value="Send Message" class="btn btn-primary btn-lg">
+        </div>
+      </form>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

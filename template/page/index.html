@@ -1,0 +1,443 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block content %}
+    <!-- begin:header -->
+    <div id="header" class="header-slide">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="quick-search">
+              <div class="row">
+                <form role="form" method="GET" action="{% url 'search' %}">
+                  {% csrf_token %}
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="country">استان</label>
+                      <select name="province" class="form-control">
+                        <option value="گلستان">
+                          گلستان
+                        </option>
+                        <option value="مازندران">
+                          مازندران
+                        </option>
+                        <option value="خراسان رضوی"> 
+                          خراسان رضوی
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="bedroom">اتاق خواب</label>
+                      <select name="bedroom" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="location">شهر</label>
+                      <select name = "city" class="form-control">
+                        <option value="گرگان">
+                          گرگان
+                        </option>
+                        <option value="کردکوی">
+                          کردکوی
+                        </option>
+                        <option value="بندرگز">
+                          بندرگز
+                        </option>
+                        <option value="گنبد">
+                          گنبد
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="bathroom">حمام</label>
+                      <select name="bathroom" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="status">وضعیت</label>
+                      <select name="condition" class="form-control">
+                        <option value="فروش">
+                          فروش
+                        </option>
+                        <option value="اجاره">
+                          اجاره
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="minprice"> حداقل قیمت اجاره</label>
+                      <select name="minPrice" class="form-control"  style="cursor: pointer;">
+                        <option value="0">بدون محدودیت</option>
+                        <option value="500000">پانصد هزار تومن</option>
+                        <option value="1000000"> یک میلیون تومن</option>
+                        <option value="1500000"> یک و نیم میلیون تومن</option>
+                        <option value="2000000"> دو میلیون تومن</option>
+                        <option value="2500000"> دو و نیم میلیون تومن</option>
+                        <option value="3000000"> سه میلیون تومن</option>
+                        <option value="3500000"> سه و نیم میلیون تومن</option>
+                        <option value="4000000"> چهار میلیون تومن</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="type">نوع</label>
+                      <select class="form-control">
+                        <option value="">
+                          ویلا
+                        </option>
+                        <option value="آپارتمان">
+                          آپارتمان
+                        </option>
+                        <option value="تجاری">
+                          تجاری
+                        </option>
+                        <option value="فروشگاه">
+                          فروشگاه
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="maxprice"> حداکثر قیمت اجاره</label>
+                      <select name="maxPrice" class="form-control"  style="cursor: pointer;">
+                        <option value="999999999999999">بدون محدودیت</option>
+                        <option value="500000">پانصد هزار تومن</option>
+                        <option value="1000000"> یک میلیون تومن</option>
+                        <option value="1500000"> یک و نیم میلیون تومن</option>
+                        <option value="2000000"> دو میلیون تومن</option>
+                        <option value="2500000"> دو و نیم میلیون تومن</option>
+                        <option value="3000000"> سه میلیون تومن</option>
+                        <option value="3500000"> سه و نیم میلیون تومن</option>
+                        <option value="4000000"> چهار میلیون تومن</option>
+                        <option value="5000000"> پنج میلیون تومن</option>
+                        <option value="6000000"> شش میلیون تومن</option>
+                        <option value="7000000"> هفت میلیون تومن</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12"><input type="submit" name="submit" value="جستجو" class="btn btn-primary btn-lg btn-block"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
+    <!-- begin:service -->
+    <div id="service">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>لورم ایپسوم متن ساختگی با تولید  <small>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت</small></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-home"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>لورم ایپسوم متن ساختگی با تولید </h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-thumbs-up"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>لورم ایپسوم متن ساختگی با تولید </h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-umbrella"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>لورم ایپسوم متن ساختگی با تولید </h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-container">
+              <div class="service-icon">
+                <a href="#"><i class="fa fa-lock"></i></a>
+              </div>
+              <div class="service-content">
+                <h3>لورم ایپسوم متن ساختگی با تولید </h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <!-- end:service -->
+    
+    <!-- begin:content -->
+    <div id="content">
+      <div class="container">
+        <!-- begin:latest -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-title">
+              <h2>آخرین املاک و مستغلات</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {%if listings %}
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            {% for listing in listings%}
+            <div class="property-container">
+              <div class="property-image">
+                <img src="{{listing.main_photo.url}}" alt="{{listing.title}}">
+                <div class="property-price">
+                  <h4>{{listing.types}}</h4>
+                  <span>{{listing.price}}</span>
+                </div>
+                <div class="property-status">
+                  <span>{{listing.condition}}</span>
+                </div>
+              </div>
+              <div class="property-features">
+                <span><i class="fa fa-home"></i> {{listing.inrastructure}} m<sup>2</sup></span>
+                <span><i class="fa fa-hdd-o"></i> 2 {{listing.bedroom}}</span>
+                <span><i class="fa fa-male"></i> 2 {{listing.bathroom}}</span>
+              </div>
+              <div class="property-content">
+                <h3><a href="{% url 'detail' listing.id %}">{{listing.title}}</a> <small>{{listing.detail}}</small></h3>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <!-- break -->
+        </div>
+        <!-- end:latest -->
+
+        <!-- begin:for-sale -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-title">
+              <h2>املاک و مستغلات برای فروش</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="property-container">
+              <div class="property-image">
+                <img src="{% static 'main/img/img06.jpg' %}" alt="arillo real estate theme">
+                <div class="property-price">
+                  <h4>مسکونی</h4>
+                  <span>$800,000</span>
+                </div>
+              </div>
+              <div class="property-content">
+                <h3><a href="#">زندگی شهری</a> <small>لورم ایپسوم متن ساختگی</small></h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+              </div>
+              <div class="property-features">
+                <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                <span><i class="fa fa-male"></i> 2 Bath</span>
+                <span><i class="fa fa-car"></i> 2 Garages</span>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="property-container">
+              <div class="property-image">
+                <img src="{% static 'main/img/img07.jpg' %}" alt="arillo real estate theme">
+                <div class="property-price">
+                  <h4>مسکونی</h4>
+                  <span>$800,000</span>
+                </div>
+              </div>
+              <div class="property-content">
+                <h3><a href="#">زندگی شهری</a> <small>لورم ایپسوم متن ساختگی</small></h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+              </div>
+              <div class="property-features">
+                <span><i class="fa fa-home"></i> 6,000 m<sup>2</sup></span>
+                <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                <span><i class="fa fa-male"></i> 2 Bath</span>
+                <span><i class="fa fa-building-o"></i> 2 Floors</span>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="property-container">
+              <div class="property-image">
+                <img src="{% static 'main/img/img08.jpg' %}" alt="arillo real estate theme">
+                <div class="property-price">
+                  <h4>مسکونی</h4>
+                  <span>$800,000</span>
+                </div>
+              </div>
+              <div class="property-content">
+                <h3><a href="#">زندگی شهری</a> <small>لورم ایپسوم متن ساختگی</small></h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+              </div>
+              <div class="property-features">
+                <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup></span>
+                <span><i class="fa fa-hdd-o"></i> 2 Bed</span>
+                <span><i class="fa fa-male"></i> 2 Bath</span>
+                <span><i class="fa fa-building-o"></i> 1 Floor</span>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+        </div>
+        <!-- end:for-sale -->
+        <!-- begin:for-rent -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-title">
+              <h2>املاک و مستغلات برای اجاره</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="property-container">
+              <div class="property-content-list">
+                <div class="property-image-list">
+                  <img src="{% static 'main/img/img09.jpg' %}" alt="arillo real estate theme">
+                  <div class="property-price">
+                    <h4>ویلا</h4>
+                    <span>$30,000<small>/month</small></span>
+                  </div>
+                  <div class="property-features">
+                    <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup></span>
+                    <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                    <span><i class="fa fa-male"></i> 2 Bath</span>
+                    <span><i class="fa fa-building-o"></i> 2 Floors</span>
+                    <span><i class="fa fa-car"></i> 2 Garages</span>
+                  </div>
+                </div>
+                <div class="property-text">
+                  <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a> <small>لورم ایپسوم متن ساختگی</small></h3>
+                  <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="property-container">
+              <div class="property-content-list">
+                <div class="property-text">
+                  <h3><a href="#">زمین در پارک مرکزی</a> <small>لورم ایپسوم متن ساختگی</small></h3>
+                  <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+                </div>
+                <div class="property-image-list">
+                  <img src="{% static 'main/img/img10.jpg' %}" alt="arillo real estate theme">
+                  <div class="property-price">
+                    <h4>Villa</h4>
+                    <span>$30,000<small>/month</small></span>
+                  </div>
+                  <div class="property-features">
+                    <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup></span>
+                    <span><i class="fa fa-hdd-o"></i> 3 Bed</span>
+                    <span><i class="fa fa-male"></i> 2 Bath</span>
+                    <span><i class="fa fa-building-o"></i> 2 Floors</span>
+                    <span><i class="fa fa-car"></i> 2 Garages</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- break -->
+        </div>
+        <!-- end:for-rent -->
+      </div>
+    </div>
+    <!-- end:content -->
+    <!-- begin:testimony -->
+    <div id="testimony" style="background-image: url({% static 'main/img/img17.jpg' %});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div id="testislider" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="testimony-container">
+                    <div class="testimony-image" style="background: url({% static 'main/img/team01.jpg' %})"></div>
+                    <div class="testimony-content">
+                      <h3>سجاد باقر زاده</h3>
+                      <blockquote>
+                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-container">
+                    <div class="testimony-image" style="background: url({% static 'main/img/team02.jpg' %})"></div>
+                    <div class="testimony-content">
+                      <h3>ایمان مدائنی</h3>
+                      <blockquote>
+                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-container">
+                    <div class="testimony-image" style="background: url({% static 'main/img/team03.jpg' %})"></div>
+                    <div class="testimony-content">
+                      <h3>سجاد باقر زاده</h3>
+                      <blockquote>
+                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="right carousel-control" href="#testislider" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="left carousel-control" href="#testislider" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:testimony -->
+{% endblock %}

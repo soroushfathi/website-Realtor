@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .links {
+        font-size: large;
+        color: rgb(1, 127, 131);
+    }
+    .loader {
+        border: 10px solid #f3f3f3; /* Light grey */
+        border-top: 10px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        animation: spin 2s linear infinite;
+      }
+      
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body>  
+    <br>
+    <br>
+    <br>
+    {% if 'orders' %}
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <table>
+                    <tr>
+                        <th>وضعیت</th>
+                        <th>تاریخ</th>
+                        <th>نام ملک</th>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            {% if order.checking %}&#10004; بررسی شده
+                            {%else%} در حال بررسی  <div class="loader"></div>
+                            {%endif%}
+                        </td>
+                        <td>{{order.contact_date}}</td>
+                        <td class="links"><a href="{% url 'detail' order.listing_id %}">{{order.listing_name}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+        {% endif %}
+    <div style="margin-right:300px; font-size:large; margin-top:10px;">
+    <a href="javascript:{document.getElementById('logout').submit()}" style="color: crimson;">خروج از ناحیه کاربری</a>
+    <form action="{% url 'logout' %}" method="POST"  id="logout">
+        {% csrf_token %}
+        <input type="hidden">
+    </form>
+    </div>
+</body>
+{% endblock %}
