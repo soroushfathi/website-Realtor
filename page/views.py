@@ -1,9 +1,14 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import About
+from listings.models import Listings
 
 def index(request):
-    return render(request,'page/index.html')
+    listings = Listings.objects.all()
+    contexts = {
+        'listings': listings,
+    }
+    return render(request,'page/index.html', context=contexts)
 
 def about(request):
     abouts = About.objects.all()
