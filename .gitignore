@@ -1,7 +1,16 @@
 .idea/
 media/
 
-db.sqlite3
-
 # Virtual Env
 vn/
+
+# Database
+db.sqlite3
+
+# Migrations
+blog/migrations/
+listings/migrations/
+page/migrations/
+realtors/migrations/
+contact/migrations/
+accounts/migrations/
