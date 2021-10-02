@@ -1,0 +1,5 @@
+version = 3
+
+services:
+  demo_postgresql:
+    image: postgres:12

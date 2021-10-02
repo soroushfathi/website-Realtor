@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listings
+from rest_framework.decorators import api_view
 
 def index(request):
     listings = Listings.objects.all()
@@ -9,6 +10,7 @@ def index(request):
     }
     return render(request,'listings/index.html', context=contexts)
 
+
 def index_items(request):
     listings = Listings.objects.all()
     # count = listings.counts
@@ -17,6 +19,7 @@ def index_items(request):
     }
     return render(request,'listings/index_items.html', context=contexts)
 
+
 def detail(request, listing_id='1'):
     listing = get_object_or_404(Listings, id=int(listing_id))
     context = {
@@ -24,6 +27,8 @@ def detail(request, listing_id='1'):
     }
     return render(request, 'listings/detail.html', context=context)
 
+
+@api_view(['GET',])
 def search(request):
     listings = Listings.objects.all()
     if 'bedroom' in request.GET:

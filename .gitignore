@@ -1,3 +1,7 @@
-.media
-.vn
+.idea/
+media/
+
 db.sqlite3
+
+# Virtual Env
+vn/
