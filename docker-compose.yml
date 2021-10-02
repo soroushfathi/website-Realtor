@@ -2,4 +2,19 @@ version = 3
 
 services:
   demo_postgresql:
-    image: postgres:12
+    image: postgres:13
+    container_name: demo_postgresql
+    volumes:
+      - demo_postgresql:/var/lib/postgresql/data
+    restart: always
+    env_files: .env
+    ports:
+      - "5432:5432"
+    networks:
+      - demo_network
+volumes:
+  demo_postgresql:
+    external: true
+networks:
+  demo_network:
+    external: true
