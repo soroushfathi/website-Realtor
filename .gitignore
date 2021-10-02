@@ -8,9 +8,9 @@ vn/
 db.sqlite3
 
 # Migrations
+accounts/migrations/
 blog/migrations/
+contact/migrations/
 listings/migrations/
 page/migrations/
 realtors/migrations/
-contact/migrations/
-accounts/migrations/
